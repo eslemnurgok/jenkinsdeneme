@@ -9,7 +9,6 @@ pipeline {
                 checkout([$class: 'GitSCM',
                           branches: [[name: '*/main']],
                           userRemoteConfigs: [[url: 'https://github.com/eslemnurgok/jenkinsdeneme']]])
-                sh 'mvn clean install'
             }
         }
 
