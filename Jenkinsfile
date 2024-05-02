@@ -10,7 +10,7 @@ pipeline {
                     branches: [[name: '*/main']],
                     userRemoteConfigs: [[url: 'https://github.com/eslemnurgok/jenkinsdeneme']]
                 )
-                bat 'mvn clean install'
+                sh 'mvn clean install'
             }
         }
 
@@ -24,7 +24,7 @@ pipeline {
         stage('Push image to Hub'){
             steps{
                 script{
-                    docker.image("demo12:${env.BUILD_NUMBER}").run("-d -p 8090:8090 --name demo-container")
+                    docker.image("demo12:${env.BUILD_NUMBER}").run("-d -p 8080:8080 --name demo-container")
                 }
             }
   }
